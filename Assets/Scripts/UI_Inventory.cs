@@ -10,10 +10,11 @@ public class UI_Inventory : MonoBehaviour
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
 
-    void Awake()
+    private void Awake()
     {
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
+
     }
 
     public void SetInventory(Inventory inventory)
@@ -28,11 +29,11 @@ public class UI_Inventory : MonoBehaviour
         float itemSlotCellSize = 30f;
         foreach (Item item in inventory.GetItemList())
         {
-            RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
+             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
-            Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
-            image.sprite = item.sprite;
+            Image image = itemSlotRectTransform.Find("image").GetComponent<image>();
+            image.sprite = item.GetSprite();
 
             x++;
             if (x > 4)
