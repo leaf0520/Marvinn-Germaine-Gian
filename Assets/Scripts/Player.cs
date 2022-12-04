@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance { get; private set; }
-    private const float SPEED = 50f;
     [SerializeField] private UI_Inventory uiInventory;
-    private Inventory inventory;
+    public Inventory inventory;
 
     private void Awake()
     {
-        Instance = this;
-
         inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
+        //uiInventory.SetInventory(inventory);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("ItemDrop"))
+        {
+            GameObject drop = collision.gameObject;
+            inventory.AddItem(drop.GetComponent<ItemDrop>().itemdata);
+            Debug.Log("Drop Collected!");
+
+            Object.Destroy(drop);
+        }
+    }
+
 }

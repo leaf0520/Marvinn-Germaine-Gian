@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using UnityEngine;
 
 public class Inventory
@@ -15,7 +14,23 @@ public class Inventory
 
     public void AddItem(Item item)
     {
-        itemList.Add(item);
+        Debug.Log(item.GetType().Name);
+        if (item.GetType().Name == "Consumables")
+        {
+            Debug.Log("Added a consumable");
+            int index = itemList.FindIndex(i => i.id == item.id);
+            if(index > -1)
+            {
+                itemList[index].amount += item.amount;
+            } else
+            {
+                itemList.Add(item);
+            }
+        }
+        else
+        {
+            itemList.Add(item);
+        }
     }
 
     public List<Item>GetItemList()

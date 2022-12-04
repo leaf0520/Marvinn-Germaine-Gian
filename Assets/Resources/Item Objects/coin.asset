@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf59badbaabea734ebf6a6ff7c9794bd, type: 3}
   m_Name: coin
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 328997c5c7dfd6348a6245814ec73178, type: 3}
   id: 5
   name: Iron Coin
   description: 
-  amount: 0
+  amount: 1

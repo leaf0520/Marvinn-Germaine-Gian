@@ -14,7 +14,7 @@ public class ItemDatabase : ScriptableObject
         _itemMasterList = new List<Item>();
         
         //get all items from folder Resources/Ttems
-        var itemsFromReseources = UnityEngine.Resources.LoadAll<Item>("Items").OrderBy(i => i.id).ToList();
+        var itemsFromReseources = UnityEngine.Resources.LoadAll<Item>("Item Objects").OrderBy(i => i.id).ToList();
 
         var hasIDInRange = itemsFromReseources.Where(i => i.id != -1 && i.id < itemsFromReseources.Count).OrderBy(i => i.id).ToList();
         var hasIDNotInRange = itemsFromReseources.Where(i => i.id != -1 && i.id >= itemsFromReseources.Count).OrderBy(i => i.id).ToList();

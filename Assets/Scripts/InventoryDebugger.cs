@@ -20,17 +20,15 @@ public class InventoryDebugger : MonoBehaviour
             Item item = database.getItemWithID(id);
             if (item != null)
             {
-                Debug.Log($"ID Requested: {item.ToString()}");
-                errorLabel.text = item.name;
+                errorLabel.text = $"Found {item.name}";
             }
             else
             {
-                errorLabel.text = "Error! invalid ID";
+                errorLabel.text = $"Error: No item found with ID {id}";
             }
-        }
-        else
+        } else
         {
-            errorLabel.text = "Error! Must input id";
+            Idinput.text = "0";
         }
     }
 }

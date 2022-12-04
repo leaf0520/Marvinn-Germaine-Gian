@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f82924cd37271c4b9c904425321bc87, type: 3}
   m_Name: medkit
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d838bf08646417742a2d365f97f0dfb5, type: 3}
   id: 2
   name: Medkit
   description: 
